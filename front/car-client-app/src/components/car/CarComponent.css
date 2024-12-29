@@ -1,0 +1,9 @@
+.btn-light-green {
+  background-color: #90ee90; /* Light green */
+  color: white; /* Text color */
+  border: none; /* Optional: Remove border */
+}
+
+.btn-light-green:hover {
+  background-color: #7ccd7c; /* Slightly darker green on hover */
+}

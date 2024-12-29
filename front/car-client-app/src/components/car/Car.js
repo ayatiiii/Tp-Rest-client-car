@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllCars, addCar } from './CarService';
 import { getAllClients } from '../client/ClientService';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './CarComponent.css';
 
 function CarComponent() {
   const [cars, setCars] = useState([]);
@@ -107,12 +108,13 @@ function CarComponent() {
           </select>
         </div>
 
-        <button type="submit" className="btn btn-primary">Add Car</button>
+        <button type="submit" className="btn btn-light-green">Add Car</button>
+
       </form>
 
       {/* Table displaying all cars */}
       <h3>Car List</h3>
-      <table className="table table-striped">
+      <table className="table table-striped table-bordered-green">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -130,13 +132,13 @@ function CarComponent() {
               <td>{car.brand}</td>
               <td>{car.model}</td>
               <td>{car.matricule}</td>
-              {/* Displaying client details */}
               <td>{car.client ? car.client.nom : 'No Owner'}</td>
-              <td>{car.client ? car.client.age : 'N/A'}</td> {/* Display client age */}
+              <td>{car.client ? car.client.age : 'N/A'}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
     </div>
   );
 }

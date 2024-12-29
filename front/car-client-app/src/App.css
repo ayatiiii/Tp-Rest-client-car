@@ -1,33 +1,52 @@
+/* Style général de l'application */
 .App {
   text-align: center;
+  background-color: #f4f7fc; /* Fond clair pour l'ensemble de l'application */
+  color: #333; /* Couleur du texte */
+  font-family: 'Segoe UI', sans-serif; /* Police moderne */
 }
 
+/* Logo de l'application */
 .App-logo {
-  height: 40vmin;
+  height: 50vmin; /* Augmenter la taille du logo */
   pointer-events: none;
+  transition: transform 0.3s ease-in-out; /* Transition pour un effet fluide */
 }
 
+/* Animation du logo */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 15s linear; /* Animation plus rapide */
   }
 }
 
+/* En-tête de l'application */
 .App-header {
-  background-color: #282c34;
+  background-color: #4c6ef5; /* Nouveau fond bleu vif */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 2vmin); /* Augmenter légèrement la taille de la police */
   color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre douce pour le texte */
 }
 
+/* Lien */
 .App-link {
-  color: #61dafb;
+  color: #f5a623; /* Couleur orangée pour les liens */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease; /* Transition pour le changement de couleur */
 }
 
+.App-link:hover {
+  color: #d45d00; /* Couleur plus foncée au survol */
+  text-decoration: underline; /* Souligner le lien au survol */
+}
+
+/* Animation du logo (rotation) */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

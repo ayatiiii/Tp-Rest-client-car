@@ -1,6 +1,5 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CarComponent from './components/car/Car';
 import ClientComponent from './components/client/Client';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap styles
@@ -12,7 +11,7 @@ function App() {
         {/* Bootstrap Navigation Bar */}
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">Car & Client Management</Link>
+            <Link className="navbar-brand" to="/">Management</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -34,7 +33,22 @@ function App() {
           <Routes>
             <Route path="/cars" element={<CarComponent />} />
             <Route path="/clients" element={<ClientComponent />} />
-            <Route path="/" element={<h2>Welcome to the Car and Client Management System</h2>} />
+            <Route
+              path="/"
+              element={
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '70vh', // Centrer verticalement dans la plupart des écrans
+                    textAlign: 'center',
+                  }}
+                >
+                  <h2> Management System</h2>
+                </div>
+              }
+            />
           </Routes>
         </div>
       </div>

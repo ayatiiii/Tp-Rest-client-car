@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getAllClients, addClient } from './ClientService'; // Correct path for ClientService.js
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap
+import { getAllClients, addClient } from './ClientService';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ClientComponent() {
   const [clients, setClients] = useState([]);
   const [newClient, setNewClient] = useState({
-    nom: '',  // Change 'name' to 'nom' to match the backend
-    age: '', // Keeping age as it is
+    nom: '',
+    age: '',
   });
 
   // Fetching all clients on component mount
@@ -22,7 +22,7 @@ function ClientComponent() {
     addClient(newClient)
       .then(() => {
         setClients([...clients, newClient]);
-        setNewClient({ nom: '', age: '' }); // Resetting state after adding a client
+        setNewClient({ nom: '', age: '' });
       })
       .catch((error) => console.error(error));
   };
@@ -55,25 +55,86 @@ function ClientComponent() {
             onChange={(e) => setNewClient({ ...newClient, age: e.target.value })}
           />
         </div>
-        <button type="submit" className="btn btn-primary">Add Client</button>
+        <button
+          type="submit"
+          className="btn"
+          style={{
+            backgroundColor: '#89CFF0', // Baby blue background
+            color: 'white', // White text
+            border: 'none',
+          }}
+        >
+          Add Client
+        </button>
       </form>
 
       {/* Table displaying all clients */}
       <h3>Client List</h3>
-      <table className="table table-striped">
+      <table
+        className="table"
+        style={{
+          borderCollapse: 'separate', // Separate borders for cells
+          borderSpacing: '5px', // Spacing between cells
+        }}
+      >
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Age</th>
+            <th
+              style={{
+                border: '2px solid #89CFF0',
+                padding: '10px',
+                backgroundColor: '#E3F2FD', // Light blue background for header
+              }}
+            >
+              ID
+            </th>
+            <th
+              style={{
+                border: '2px solid #89CFF0',
+                padding: '10px',
+                backgroundColor: '#E3F2FD',
+              }}
+            >
+              Nom
+            </th>
+            <th
+              style={{
+                border: '2px solid #89CFF0',
+                padding: '10px',
+                backgroundColor: '#E3F2FD',
+              }}
+            >
+              Age
+            </th>
           </tr>
         </thead>
         <tbody>
-          {clients.map((client, index) => (
+          {clients.map((client) => (
             <tr key={client.id}>
-              <th scope="row">{index + 1}</th>
-              <td>{client.nom}</td>
-              <td>{client.age}</td>
+              <td
+                style={{
+                  border: '2px solid #89CFF0',
+                  padding: '10px',
+                }}
+              >
+                {client.id} {/* Displaying the ID of each client */}
+              </td>
+              <td
+                style={{
+                  border: '2px solid #89CFF0',
+                  padding: '10px',
+                }}
+              >
+                {client.nom}
+              </td>
+              <td
+                style={{
+                  border: '2px solid #89CFF0',
+                  padding: '10px',
+                }}
+              >
+                {client.age}
+              </td>
             </tr>
           ))}
         </tbody>
